@@ -1,0 +1,21 @@
+{
+	"name": "npwd",
+	"version": "1.0.0",
+	"author": "Nadim Kobeissi",
+	"description": "Command-line password management for your various accounts.",
+	"main": "npwd.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kaepora/npwd"
+	},
+	"keywords": [
+		"password manager"
+	],
+	"license": "GPLv3",
+	"dependencies": {
+		"copy-paste": "latest",
+		"scrypt-async": "latest",
+		"prompt": "latest",
+		"colors": "latest"
+	}
+}
