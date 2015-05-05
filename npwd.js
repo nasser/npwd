@@ -9,35 +9,28 @@ process.on('SIGINT', process.exit)
 
 var npwd = {
 	scrypt: function(res, cbk) {
-		res.acc = (
-			'npwd'  + 
-			res.acc +
-			'npwd'
-		)
+		var n = 'npwd'
 		return scrypt(
-			res.key, res.acc,
-			17, 8, 16, 800,
-			cbk, 'hex'
+			res.key,n+res.acc+n,
+			17,8,16,800,cbk,'hex'
 		)
 	},
 	prompt: function(cbk) {
 		prompt.message = 'npwd'.blue.bold
 		prompt.delimiter = '>'
 		prompt.start()
-		prompt.get({
-			properties: {
-				key: {
-					hidden: true,
-					message: 'key',
-					required: true
-				},
-				acc: {
-					hidden: false,
-					message: 'account',
-					required: true
-				}
+		prompt.get({properties: {
+			key: {
+				hidden: true,
+				message: 'key',
+				required: true
+			},
+			acc: {
+				hidden: false,
+				message: 'account',
+				required: true
 			}
-		}, cbk)
+		}}, cbk)
 	},
 	inClipbd: function(c, cbk) {
 		var t = setInterval(function() {
