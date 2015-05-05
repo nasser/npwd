@@ -33,4 +33,4 @@ Clipboard is cleared automatically after 10 seconds for security.
 2. Account names are lowercased automatically for usability. "GitHub" == "github".
 
 ### Disclaimer
-npwd does not constitute a replacement for a robust security posture.
+npwd was written in a two-hour meeting because I was bored. No warranty, no guarantee it won't explode, summon Cthulhu, etc.
