@@ -68,4 +68,3 @@ npwd.prompt(function(err, res) {
 		}
 	)
 })
-
