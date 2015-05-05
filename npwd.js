@@ -8,11 +8,15 @@ var stdout = process.stdout
 process.on('SIGINT', process.exit)
 
 var npwd = {
-	scrypt: function(key, acc, cbk) {
-		acc = 'npwd' + acc + 'npwd'
+	scrypt: function(res, cbk) {
+		res.acc = (
+			'npwd'  + 
+			res.acc +
+			'npwd'
+		)
 		return scrypt(
-			key, acc, 17,
-			8, 16, 800,
+			res.key, res.acc,
+			17, 8, 16, 800,
 			cbk, 'hex'
 		)
 	},
@@ -48,6 +52,12 @@ var npwd = {
 			); c--
 		}, 1000)
 	},
+	clear: function() {
+		stdout.clearLine()
+		stdout.cursorTo(0)
+		stdout.write(npwd.msg[2].inverse)
+		process.exit()
+	},
 	msg: [
 		'Please wait...',
 		'In clipboard!',
@@ -58,17 +68,9 @@ var npwd = {
 npwd.prompt(function(err, res) {
 	stdout.write(npwd.msg[0])
 	res.acc = res.acc.toLowerCase()
-	npwd.scrypt(
-		res.key, res.acc,
-		function(pwd) {
-			clipbd.copy(pwd, function() {
-				npwd.inClipbd(10, function() {
-					stdout.clearLine()
-					stdout.cursorTo(0)
-					stdout.write(npwd.msg[2].inverse)
-					process.exit()
-				})
-			})
-		}
-	)
+	npwd.scrypt(res, function(pwd) {
+		clipbd.copy(pwd, function() {
+			npwd.inClipbd(10, npwd.clear)
+		})
+	})
 })
