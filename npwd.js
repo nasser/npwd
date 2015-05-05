@@ -11,8 +11,9 @@ process.on('SIGINT', process.exit)
 
 var npwd = {
 	scrypt: function(key, acc, cbk) {
+		acc = 'npwd' + acc + 'npwd'
 		return scrypt(
-			key,acc,17,
+			key, acc, 17,
 			8, 16, 800,
 			cbk, 'hex'
 		)
