@@ -4,9 +4,7 @@ var scrypt = require('scrypt-async')
 var prompt = require('prompt')
 var colors = require('colors')
 
-var write = function(x) {
-	process.stdout.write(x)
-}
+var stdout = process.stdout
 process.on('SIGINT', process.exit)
 
 var npwd = {
@@ -37,34 +35,39 @@ var npwd = {
 			}
 		}, cbk)
 	},
-	clearClipbd: function(cbk) {
-		var c = 9
+	inClipbd: function(c, cbk) {
 		var t = setInterval(function() {
-			write(c.toString() + ' ')
-			c--
+			if (c === 0) {
+				clearInterval(t)
+				clipbd.copy('', cbk)
+			}
+			stdout.clearLine()
+			stdout.cursorTo(0)
+			stdout.write(
+				npwd.msg[1].bgGreen + ' ' + c
+			); c--
 		}, 1000)
-		setTimeout(function() {
-			clearInterval(t)
-			clipbd.copy('', cbk)
-		}, 9999)
-		write(npwd.msg[2])
 	},
 	msg: [
-		'Please wait... ',
-		'Go!'.bgGreen,
-		'Clearing clipboard in '
+		'Please wait...',
+		'In clipboard!',
+		'Cleared.'
 	]
 }
 
 npwd.prompt(function(err, res) {
-	write(npwd.msg[0])
+	stdout.write(npwd.msg[0])
 	res.acc = res.acc.toLowerCase()
 	npwd.scrypt(
 		res.key, res.acc,
 		function(pwd) {
 			clipbd.copy(pwd, function() {
-				write(npwd.msg[1] + '\n')
-				npwd.clearClipbd(function() {})
+				npwd.inClipbd(10, function() {
+					stdout.clearLine()
+					stdout.cursorTo(0)
+					stdout.write(npwd.msg[2].inverse)
+					process.exit()
+				})
 			})
 		}
 	)
