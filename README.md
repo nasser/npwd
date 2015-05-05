@@ -10,7 +10,9 @@
 4. Doesn't store anything: no password databases to manage.
 
 ### Installation
-`npm install`
+`git clone https://github.com/kaepora/npwd.git
+cd npwd
+npm install`
 
 You can add an alias in your .bashrc:
 `alias npwd="/home/you/npwd/node npwd.js"`
