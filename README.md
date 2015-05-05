@@ -1,7 +1,7 @@
 # npwd
 ## Command-line password management for your various accounts.
 
-`npwd` is simple, stateless password management. You enter a master key and the name of an account (ex. "Twitter"), wait a few seconds, and npwd generates a password for that account ready in your clipboard. You can reuse the same master key for all your accounts, and npwd will generate a different password for every account. Every time you want to log in, just launch npwd and enter the same master key and account name. Simple! Useful!
+`npwd` is simple, stateless password management. You enter a master key and the name of an account (ex. "Twitter"), wait a few seconds, and npwd generates a password for that account ready in your clipboard. You can reuse the same master key for all your accounts, and npwd will generate a different password for every account. Every time you want to log in, just launch npwd and enter the same master key and account name. Simple! Useful! :rainbow: :sparkling_heart:
 
 ### Benefits
 1. Memorize a single master key, but still get a different password for every account.
