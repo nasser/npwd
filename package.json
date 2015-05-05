@@ -1,6 +1,6 @@
 {
 	"name": "npwd",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": "Nadim Kobeissi",
 	"description": "Command-line password management for your various accounts.",
 	"main": "npwd.js",
