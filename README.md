@@ -29,7 +29,7 @@ On Windows, you can create a `npwd.cmd` in some directory that's in your `PATH`:
 Clipboard is cleared automatically after 15 seconds for security.
 
 ### Notes
-1. Key derivation is done with scrypt. N = 2<sup>17</sup>, r = 8, p = 1, L = 32. Account name acts as salt.
+1. Key derivation is done with scrypt. N = 2<sup>17</sup>, r = 8, p = 1, L = 16. Account name acts as salt.
 2. Account names are lowercased automatically for usability. "GitHub" == "github".
 
 ### Disclaimer
