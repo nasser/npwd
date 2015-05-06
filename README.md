@@ -6,7 +6,7 @@
 ### Benefits
 1. Memorize a single master key, but still get a different password for every account.
 2. Quick and easy command-line access.
-3. Copies password straight to clipboard then clears clipboard automatically in 10 seconds.
+3. Copies password straight to clipboard then clears clipboard automatically in 15 seconds.
 4. Doesn't store anything: no password databases to manage.
 
 ### Installation
@@ -26,7 +26,7 @@ On Windows, you can create a `npwd.cmd` in some directory that's in your `PATH`:
 3. Enter the name of your account (ex. "Twitter", "GitHub")
 4. In a few seconds, your password for that account is in your clipboard.
 
-Clipboard is cleared automatically after 10 seconds for security.
+Clipboard is cleared automatically after 15 seconds for security.
 
 ### Notes
 1. Key derivation is done with scrypt. N = 2<sup>17</sup>, r = 8, p = 1, L = 32. Account name acts as salt.
