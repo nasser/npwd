@@ -16,7 +16,7 @@ var npwd = {
 		)
 	},
 	prompt: function(cbk) {
-		prompt.message = 'npwd'.blue.bold
+		prompt.message = 'npwd'.blue
 		prompt.delimiter = '>'
 		prompt.start()
 		prompt.get({properties: {
@@ -33,37 +33,45 @@ var npwd = {
 		}}, cbk)
 	},
 	inClipbd: function(c, cbk) {
+		stdout.clearLine()
+		stdout.cursorTo(0)
+		stdout.write(npwd.msg[0] + c)
 		var t = setInterval(function() {
-			if (c === 0) {
+			c--
+			if (c == 0) {
 				clearInterval(t)
 				clipbd.copy('', cbk)
+				return false
 			}
 			stdout.clearLine()
 			stdout.cursorTo(0)
-			stdout.write(
-				npwd.msg[1].bgGreen + ' ' + c
-			); c--
+			stdout.write(npwd.msg[0] + c)
 		}, 1000)
 	},
 	clear: function() {
 		stdout.clearLine()
 		stdout.cursorTo(0)
-		stdout.write(npwd.msg[2].inverse)
 		process.exit()
 	},
 	msg: [
-		'Please wait...',
-		'In clipboard!',
-		'Cleared.'
+		'In clipboard!'.bgGreen + ' ',
 	]
 }
 
 npwd.prompt(function(err, res) {
-	stdout.write(npwd.msg[0])
+	var l = ['|', '/', '—', '\\']
+	var i = 0
+	var t = setInterval(function() {
+		(i == 4)? i = 0 : 0
+		stdout.clearLine()
+		stdout.cursorTo(0)
+		stdout.write(l[i]); i++
+	}, 83)
 	res.acc = res.acc.toLowerCase()
 	npwd.scrypt(res, function(pwd) {
 		clipbd.copy(pwd, function() {
-			npwd.inClipbd(10, npwd.clear)
+			clearInterval(t)
+			npwd.inClipbd(15, npwd.clear)
 		})
 	})
 })
