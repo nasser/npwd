@@ -54,7 +54,7 @@ var npwd = {
 		process.exit()
 	},
 	msg: [
-		'In clipboard!'.bgGreen + ' ',
+		'In clipboard!'.bgGreen + ' '
 	]
 }
 
