@@ -10,18 +10,10 @@
 4. Doesn't store anything: no password databases to manage.
 
 ### Installation
-`git clone https://github.com/kaepora/npwd.git`  
-`cd npwd`  
-`npm install`  
-
-You can add an alias in your `.bashrc`:
-`alias npwd="/home/you/npwd/node npwd.js"`
-
-On Windows, you can create a `npwd.cmd` in some directory that's in your `PATH`:
-`@echo off && node C:\Users\You\Documents\npwd\npwd.js`
+`npm install -g npwd`
 
 ### Usage
-1. `node npwd.js`
+1. `npwd`
 2. Enter your master key (hidden) (same for all accounts).
 3. Enter the name of your account (ex. "Twitter", "GitHub")
 4. In a few seconds, your password for that account is in your clipboard.
