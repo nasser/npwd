@@ -1,17 +1,28 @@
 {
 	"name": "npwd",
-	"version": "1.0.4",
 	"author": "Nadim Kobeissi",
+	"homepage": "https://github.com/kaepora/npwd",
 	"description": "Command-line password management for your various accounts.",
-	"main": "npwd.js",
+	"version": "1.0.4",
+	"licenses": [{
+		"type": "GNU General Public License Version 3",
+		"url": "http://www.gnu.org/copyleft/gpl.html"
+	}],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/kaepora/npwd"
 	},
+	"bugs": {
+		"url": "https://github.com/kaepora/npwd/issues"
+	},
+	"main": "npwd.js",
+	"bin": {
+		"npwd": "npwd.js"
+	},
 	"keywords": [
 		"password manager"
 	],
-	"license": "GPLv3",
+	"preferGlobal": true,
 	"dependencies": {
 		"copy-paste": "latest",
 		"scrypt-async": "latest",

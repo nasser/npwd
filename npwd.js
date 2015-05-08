@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict';
 var clipbd = require('copy-paste')
 var scrypt = require('scrypt-async')
