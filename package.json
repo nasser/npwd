@@ -3,7 +3,7 @@
 	"author": "Nadim Kobeissi",
 	"homepage": "https://github.com/kaepora/npwd",
 	"description": "Command-line password management for your various accounts.",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"licenses": [{
 		"type": "GNU General Public License Version 3",
 		"url": "http://www.gnu.org/copyleft/gpl.html"
